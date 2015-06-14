@@ -7,13 +7,6 @@
 	<style>
 		body { margin: 50px; }
 	</style>
-	<?php echo Asset::js(array(
-		'http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js',
-		'bootstrap.js',
-	)); ?>
-	<script>
-		$(function(){ $('.topbar').dropdown(); });
-	</script>
 </head>
 <body style="background:#f6f6f6;">
 
@@ -92,5 +85,13 @@
 			<p class="pull-right">JIRA preprocessor</p>
 		</footer>
 	</div>
+
+	<?php echo Asset::js(array(
+		'//code.jquery.com/jquery-1.11.3.min.js',
+		'bootstrap.js',
+	)); ?>
+	<script>
+		$(function(){ $('.topbar').dropdown(); });
+	</script>
 </body>
 </html>

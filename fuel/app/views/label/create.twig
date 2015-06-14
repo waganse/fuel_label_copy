@@ -1,0 +1,31 @@
+<h2>New Label</h2>
+<hr>
+
+{% if error %}
+<div class="alert alert-danger" role="alert">{{ error|e }}</div>
+{% endif %}
+
+<form class="form-horizontal" action="{{ link_base }}label/create/" accept-charset="utf-8" method="post">
+    <fieldset>
+        <div class="form-group">
+            <label class="control-label" for="form_name">Name</label>
+                <input class="col-md-4 form-control" placeholder="Name" name="name" value="" type="text" id="form_name">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Label group</label>
+            <select name="group_id" id="form_group" class="form-control">
+                <option value="">-</option>
+                {% for group in groups %}
+                <option value="{{ group.id }}">{{ group.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="form_name">Remarks</label>
+                <textarea class="col-md-4 form-control" placeholder="Remarks" name="remarks"></textarea>
+        </div>
+        <div class="form-group">
+            <label class="control-label">&nbsp;</label>
+            <input class="btn btn-primary" name="submit" value="Save" type="submit" id="form_submit">       </div>
+    </fieldset>
+</form>

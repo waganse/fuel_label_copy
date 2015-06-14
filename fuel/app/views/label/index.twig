@@ -1,0 +1,31 @@
+<h2>Label Copy</h2>
+<hr>
+<section class="row">
+<div class="panel panel-body panel-primary"><span id="js-copy-text" class="js-label-text"></span></div>
+</section>
+
+<button type="button" id="js-copy-btn" class="btn btn-default js-copy"><i class="glyphicon glyphicon-share"></i> Copy Text</button>
+<button type="button" class="btn btn-link js-clear">Clear All</button>
+
+<hr>
+
+<section class="row">
+{% for group in labelgroups %}
+
+<div class="col-md-3">
+<h3 style="margin-bottom:20px;font-weight:normal;">{{ group.name|e }}</h3>
+
+<ul class="list-group">
+{% for label in labels %}
+
+{% if group.id == label.group_id %}
+<li class="list-group-item" style="padding:0;"><label style="display:block;padding:10px 15px;"><input type="checkbox" class="js-label" value="{{ label.name|e }}">&nbsp;&nbsp;{{ label.name|e }}</label></li>
+{% endif %}
+
+{% endfor %}
+</ul>
+</div>
+{% endfor %}
+
+</section>
+

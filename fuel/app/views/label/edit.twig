@@ -1,0 +1,30 @@
+<h2>Label edit</h2>
+<hr>
+
+<form class="form-horizontal" action="{{ link_base }}label/edit/{{ label.id }}" accept-charset="utf-8" method="post">
+    <fieldset>
+        <div class="form-group">
+            <label class="control-label" for="form_name">Name</label>
+                <input class="col-md-4 form-control" placeholder="Name" name="name" value="{{ label.name }}" type="text" id="form_name">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Label group</label>
+            <select name="group_id" id="form_group" class="form-control">
+                {% for group in groups %}
+                {% if group.id == label.group_id %}
+                <option value="{{ group.id }}" selected="true">{{ group.name }}</option>
+                {% else %}
+                <option value="{{ group.id }}">{{ group.name }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="form_name">Remarks</label>
+                <textarea class="col-md-4 form-control" placeholder="Remarks" name="remarks">{{ label.remarks }}</textarea>
+        </div>
+        <div class="form-group">
+            <label class="control-label">&nbsp;</label>
+            <input class="btn btn-primary" name="submit" value="Save" type="submit" id="form_submit">       </div>
+    </fieldset>
+</form>

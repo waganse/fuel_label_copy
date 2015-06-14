@@ -1,0 +1,32 @@
+<h2>Label list</h2>
+<hr>
+
+{% for group in labelgroups %}
+
+{% if loop.first or loop.index % 3 == 0 %}
+<section class="row">
+{% endif %}
+<div class="col-md-6">
+<h3 style="font-weight:normal">{{ group.name|e }}</h3>
+<hr>
+
+<ul class="list-group">
+{% for label in labels %}
+
+{% if group.id == label.group_id %}
+<li class="list-group-item" style="position:relative;">
+    <span>{{ label.name|e }}</span><span style="margin-left:20px;">( {{ label.remarks }} )</span>
+    <a  href="{{ link_base }}label/edit/{{ label.id }}" class="btn btn-default" style="position:absolute;top:6px;right:100px;padding:3px 12px;"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+    <a  href="{{ link_base }}label/delete/{{ label.id }}" class="btn btn-default" style="position:absolute;top:6px;right:10px;padding:3px 12px;"><i class="glyphicon glyphicon-remove"></i> Delete</a>
+</li>
+{% endif %}
+
+{% endfor %}
+</ul>
+</div>
+
+{% if loop.last or loop.index % 2 == 0 %}
+</section>
+{% endif %}
+
+{% endfor %}

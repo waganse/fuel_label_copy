@@ -1,0 +1,14 @@
+<h2>Label Group list</h2>
+<hr>
+
+<ul class="list-group">
+{% for group in labelgroups %}
+
+<li class="list-group-item" style="position:relative;">
+    <span>{{ group.name|e }}</span><span style="margin-left:20px;">( {{ group.remarks }} )</span>
+    <a  href="{{ link_base }}labelgroup/edit/{{ group.id }}" class="btn btn-default" style="position:absolute;top:6px;right:100px;padding:3px 12px;"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+    <a  href="{{ link_base }}labelgroup/delete/{{ group.id }}" class="btn btn-default" style="position:absolute;top:6px;right:10px;padding:3px 12px;"><i class="glyphicon glyphicon-remove"></i> Delete</a>
+</li>
+
+{% endfor %}
+</ul>
